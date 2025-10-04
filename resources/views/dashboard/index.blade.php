@@ -24,10 +24,6 @@
 @include('dashboard.__partial.body.overlay')
 
 
-{{--             call footer          --}}
-@include('dashboard.__partial.footer')
-
-
 {{--             call content          --}}
 @include('dashboard.__partial.body.content')
 

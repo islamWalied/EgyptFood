@@ -9,8 +9,6 @@
 
 
 
-
-
     {{--             call profile pages         --}}
     @include('dashboard.__partial.dash_header.profile_data')
 

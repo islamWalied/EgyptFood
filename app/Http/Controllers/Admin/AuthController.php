@@ -11,7 +11,7 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $fileType = filter_var($request->login_id, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        $fileType = filter_var($request->login_id, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
 
         if ($fileType === 'email') {
             $request->validate([
@@ -25,7 +25,7 @@ class AuthController extends Controller
             ]);
         } else {
             $request->validate([
-                'login_id' => 'required|exists:users,username',
+                'login_id' => 'required|exists:users,name',
                 'password' => 'required|min:5|max:45',
             ], [
                 'login_id.required' => 'Email or Username is required',
@@ -45,7 +45,7 @@ class AuthController extends Controller
 
     public function logout()
     {
-        Auth::guard('admin')->logout();
+        Auth::logout();
         Session::flash('fail' , 'User logged out successfully');
         return redirect()->route('admin.login');
     }

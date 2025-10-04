@@ -4,17 +4,9 @@
 {{--     call pre loading         --}}
 {{--    @include('dashboard.__partial.pre_loading')--}}
 
+{{--             call header          --}}
+@include('dashboard.__partial.dash_header.header')
 
-<div class="header">
-
-    {{--             call header left         --}}
-    @include('dashboard.__partial.dash_header.header_left')
-
-    {{--             call header right         --}}
-    @include('dashboard.__partial.dash_header.header_right')
-
-
-</div>
 
 <div class="right-sidebar">
     <div class="sidebar-title">

@@ -13,7 +13,7 @@
                     </div>
 
                     {{--             call build by          --}}
-                    @include('dashboard.__partial.body.extra')
+{{--                    @include('dashboard.__partial.body.extra')--}}
 
                 </div>
             </div>

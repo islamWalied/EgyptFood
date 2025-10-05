@@ -1,0 +1,34 @@
+name: Laravel CI/CD to cPanel
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          port: ${{ secrets.SSH_PORT }}
+          debug: true
+          script: |
+            set -e
+            cd ${{ secrets.DEPLOY_PATH }}
+            git pull origin main
+            /usr/local/bin/php artisan config:cache
+            /usr/local/bin/php artisan route:cache
+            /usr/local/bin/php artisan view:cache
+            /usr/local/bin/php artisan optimize
+            /usr/local/bin/php artisan optimize:clear
+
+

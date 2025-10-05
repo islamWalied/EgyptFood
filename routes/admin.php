@@ -4,12 +4,12 @@ use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return redirect()->route('admin.login');
-});
 
 
 Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', function () {
+        return redirect()->route('admin.login');
+    });
     Route::get('/home', [AdminController::class, 'home'])->name('home');
 
 //    Route::middleware()->group(function () {

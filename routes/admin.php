@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,5 +24,5 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('logout');
     Route::resource('/', AdminController::class);
 //    });
-
+    Route::resource('categories', CategoryController::class);
 });

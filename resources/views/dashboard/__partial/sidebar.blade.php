@@ -2,8 +2,8 @@
     <div class="brand-logo">
         <a href="{{ route('admin.home') }}" class="d-flex align-items-center">
             <h1 class="">EgyFood</h1>
-{{--            <img src="{{ asset('vendors/images/deskapp-logo.svg') }}" alt="Dark Logo" class="dark:d-none" />--}}
-{{--            <img src="{{ asset('vendors/images/deskapp-logo-white.svg') }}" alt="Light Logo" class="d-none dark:d-block" />--}}
+            {{--            <img src="{{ asset('vendors/images/deskapp-logo.svg') }}" alt="Dark Logo" class="dark:d-none" />--}}
+            {{--            <img src="{{ asset('vendors/images/deskapp-logo-white.svg') }}" alt="Light Logo" class="d-none dark:d-block" />--}}
         </a>
         <div class="close-sidebar" data-toggle="left-sidebar-close">
             <i class="ion-close-round"></i>
@@ -12,16 +12,19 @@
     <div class="menu-block customscroll">
         <div class="sidebar-menu">
             <ul id="accordion-menu">
-                {{--                <li class="dropdown">--}}
-                {{--                    <a href="javascript:;" class="dropdown-toggle">--}}
-                {{--                        <span class="micon bi bi-house"></span><span class="mtext">Home</span>--}}
-                {{--                    </a>--}}
-                {{--                    <ul class="submenu">--}}
-                {{--                        <li><a href="">Dashboard style 1</a></li>--}}
-                {{--                        <li><a href="index2.html">Dashboard style 2</a></li>--}}
-                {{--                        <li><a href="index3.html">Dashboard style 3</a></li>--}}
-                {{--                    </ul>--}}
-                {{--                </li>--}}
+                <li class="dropdown">
+                    <a href="{{route('admin.home')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon bi bi-house"></span>
+                        <span class="mtext">Home</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="{{ route('admin.categories.index') }}" class="dropdown-toggle no-arrow">
+                        <span class="micon bi bi-grid"></span>
+                        <span class="mtext">{{ __("categories.title") }}</span>
+                    </a>
+                </li>
+
                 {{--                <li class="dropdown">--}}
                 {{--                    <a href="javascript:;" class="dropdown-toggle">--}}
                 {{--                        <span class="micon bi bi-textarea-resize"></span><span class="mtext">Forms</span>--}}

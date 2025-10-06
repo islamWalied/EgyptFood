@@ -20,42 +20,38 @@
                     </div>
                 @endif
 
-                <form action="{{ route('admin.categories.update', $category->id) }}" method="POST" class="max-w-md" enctype="multipart/form-data">
+                <form action="{{ route('admin.categories.update', $category->id) }}" method="POST" class="max-w-md"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <div class="mb-4">
-                        <label for="name" class="form-label">{{ __('categories.name') }}</label>
-                        <input type="text" name="name" id="name" value="{{ old('name', $category->name) }}" class="form-control" required>
-                        @error('name')
-                        <p class="text-danger small">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="mb-4">
-                        <label for="image" class="form-label">{{ __('categories.image') }}</label>
-                        <input type="file" name="image" id="image" class="form-control">
-                        @if ($category->image)
-                            <p class="small mt-2">{{ __('categories.current_image') }}: <img src="{{ Storage::url($category->image) }}" alt="{{ $category->name }}" style="max-width: 100px;"></p>
-                        @endif
-                        @error('image')
-                        <p class="text-danger small">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="mb-4">
-                        <label for="category_id" class="form-label">{{ __('categories.parent') }}</label>
-                        <select name="category_id" id="category_id" class="form-control">
-                            <option value="">{{ __('categories.no_parent') }}</option>
-                            @foreach ($categories as $parent)
-                                <option value="{{ $parent->id }}" {{ old('category_id', $category->category_id) == $parent->id ? 'selected' : '' }}>{{ $parent->name }}</option>
-                            @endforeach
-                        </select>
-                        @error('category_id')
-                        <p class="text-danger small">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <button type="submit" class="btn btn-primary">{{ __('categories.update') }}</button>
-                    <a href="{{ route('admin.categories.index') }}" class="btn btn-secondary">{{ __('categories.cancel') }}</a>
+
+                    @include('admin.categories._form', ['button_label' => __('categories.update')])
+
+                    <a href="{{ route('admin.categories.index') }}"
+                        class="btn btn-secondary">{{ __('categories.cancel') }}</a>
                 </form>
             </div>
         </div>
     </div>
+
+    @push('scripts')
+        <script>
+            function previewImage(event) {
+                const input = event.target;
+                const preview = document.getElementById('preview');
+
+                // التحقق من وجود صورة تم اختيارها
+                if (input.files && input.files[0]) {
+                    const reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        preview.src = e.target.result;
+                        preview.style.display = 'block'; // إظهار الصورة
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        </script>
+    @endpush
 </x-dashboard.front-layout>

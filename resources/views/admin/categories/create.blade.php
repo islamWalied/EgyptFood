@@ -8,7 +8,7 @@
         <li class="breadcrumb-item active" aria-current="page">{{ __('categories.create_title') }}</li>
     </x-slot:breadcrumb>
 
-    <div class="container">
+    <div class="container" >
         <div class="row">
             <div class="col-md-12">
                 <h1 class="text-2xl font-bold mb-4">{{ __('categories.create_title') }}</h1>
@@ -20,38 +20,37 @@
                     </div>
                 @endif
 
-                <form action="{{ route('admin.categories.store') }}" method="POST" class="max-w-md" enctype="multipart/form-data">
+                <form action="{{ route('admin.categories.store') }}" method="POST" class="max-w-md"
+                    enctype="multipart/form-data">
                     @csrf
-                    <div class="mb-4">
-                        <label for="name" class="form-label">{{ __('categories.name') }}</label>
-                        <input type="text" name="name" id="name" class="form-control" required>
-                        @error('name')
-                        <p class="text-danger small">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="mb-4">
-                        <label for="image" class="form-label">{{ __('categories.image') }}</label>
-                        <input type="file" name="image" id="image" class="form-control">
-                        @error('image')
-                        <p class="text-danger small">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="mb-4">
-                        <label for="category_id" class="form-label">{{ __('categories.parent') }}</label>
-                        <select name="category_id" id="category_id" class="form-control">
-                            <option value="">{{ __('categories.no_parent') }}</option>
-                            @foreach ($categories as $parent)
-                                <option value="{{ $parent->id }}">{{ $parent->name }}</option>
-                            @endforeach
-                        </select>
-                        @error('category_id')
-                        <p class="text-danger small">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <button type="submit" class="btn btn-primary">{{ __('categories.create') }}</button>
-                    <a href="{{ route('admin.categories.index') }}" class="btn btn-secondary">{{ __('categories.cancel') }}</a>
+
+                    @include('admin.categories._form')
+
+                    <a href="{{ route('admin.categories.index') }}"
+                        class="btn btn-secondary">{{ __('categories.cancel') }}</a>
                 </form>
             </div>
         </div>
     </div>
+
+    @push('scripts')
+        <script>
+            function previewImage(event) {
+                const input = event.target;
+                const preview = document.getElementById('preview');
+
+                // التحقق من وجود صورة تم اختيارها
+                if (input.files && input.files[0]) {
+                    const reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        preview.src = e.target.result;
+                        preview.style.display = 'block'; // إظهار الصورة
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        </script>
+    @endpush
 </x-dashboard.front-layout>

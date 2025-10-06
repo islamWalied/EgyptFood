@@ -30,8 +30,11 @@ class CategoryController extends Controller
 
     public function create()
     {
+        $category = new Category();
         $categories = Category::whereNull('category_id')->get();
-        return view('admin.categories.create', compact('categories'));
+        $parents = Category::pluck('name' , 'id')->toArray();
+
+        return view('admin.categories.create', compact('category','categories' , 'parents'));
     }
 
     public function store(Request $request)
@@ -43,9 +46,11 @@ class CategoryController extends Controller
     {
         $response = $this->categoryService->show($id);
         $categories = Category::whereNull('category_id')->where('id', '!=', $id)->get();
+        $parents = Category::pluck('name' , 'id')->toArray();
         return view('admin.categories.edit', [
             'category' => $response->getData()['item'],
             'categories' => $categories,
+            'parents' => $parents,
         ]);
     }
 

@@ -21,4 +21,9 @@ class Category extends Model
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+
+    public function getImageUrlAttribute()
+    {
+        return $this->image ? 'storage/' . $this->image : 'https://via.placeholder.com/150';
+    }
 }

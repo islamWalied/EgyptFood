@@ -1,0 +1,183 @@
+/* ===== RTL overrides for DeskApp 3.0 (based on your LTR file) ===== */
+/* فعّله بكتابة dir="rtl" على عنصر <html> وحمّله بعد الملف الأصلي */
+
+html[dir="rtl"], html[dir="rtl"] body { direction: rtl; text-align: right; }
+
+/* ---------- Helpers ---------- */
+html[dir="rtl"] .text-end{ text-align:end!important; }
+html[dir="rtl"] .to-end{ margin-inline-start:auto; }
+html[dir="rtl"] .pin-end{ position:absolute; inset-inline-end:0; inset-inline-start:auto; }
+html[dir="rtl"] .rtl-flip{ right:0!important; left:auto!important; }
+
+/* ---------- Spacing utilities swap ---------- */
+html[dir="rtl"] .pr-10{ padding-right:10px; padding-left:0; }
+html[dir="rtl"] .pr-20{ padding-right:20px; padding-left:0; }
+html[dir="rtl"] .pr-30{ padding-right:30px; padding-left:0; }
+html[dir="rtl"] .pl-10{ padding-left:10px; padding-right:0; }
+html[dir="rtl"] .pl-20{ padding-left:20px; padding-right:0; }
+html[dir="rtl"] .pl-30{ padding-left:30px; padding-right:0; }
+html[dir="rtl"] .mr-10{ margin-right:10px; margin-left:0; }
+html[dir="rtl"] .mr-20{ margin-right:20px; margin-left:0; }
+
+/* ---------- Header / Main container ---------- */
+html[dir="rtl"] .header{ right:auto; left:0; width:calc(100% - 280px); }
+@media (max-width:1300px){ html[dir="rtl"] .header{ width:100%; } }
+
+html[dir="rtl"] .main-container{ padding:80px 300px 2px 20px; }
+@media (min-width:1301px){
+  html[dir="rtl"] .sidebar-shrink .left-side-bar,
+  html[dir="rtl"] .sidebar-shrink .left-side-bar.open{ left:-281px; right:auto; }
+  html[dir="rtl"] .sidebar-shrink .main-container{ padding-right:20px; padding-left:20px; }
+}
+@media (max-width:1300px){
+  html[dir="rtl"] .main-container{ padding-right:5px; padding-left:5px; }
+}
+
+/* ---------- Header search ---------- */
+html[dir="rtl"] .header-left .header-search{ padding-right:20px; padding-left:0; }
+html[dir="rtl"] .header-left .header-search .search-icon{ right:17px; left:auto; }
+html[dir="rtl"] .header-left .header-search .dropdown{ right:auto; left:0; padding-left:10px; padding-right:0; }
+html[dir="rtl"] .header-left .header-search .dropdown .dropdown-toggle{
+  right:auto; left:0; border-radius:.25rem 0 0 .25rem;
+}
+html[dir="rtl"] .header-left .header-search .search-input{ padding-right:55px; padding-left:50px; }
+
+/* ---------- User info / notifications ---------- */
+html[dir="rtl"] .user-info-dropdown{ padding:5px 0 5px 10px; }
+html[dir="rtl"] .user-info-dropdown .dropdown-toggle .user-name{ margin-right:5px; margin-left:0; }
+html[dir="rtl"] .dropdown-menu-icon-list .dropdown-item{ padding-right:45px; padding-left:1rem; }
+html[dir="rtl"] .dropdown-menu-icon-list .dropdown-item i{ right:16px; left:auto; transform:translate(0,-50%); }
+
+html[dir="rtl"] .user-notification{ float:left; margin-left:10px; margin-right:0; padding:22px 0 10px 5px; }
+html[dir="rtl"] .user-notification .dropdown-toggle .badge{ left:8px; right:auto; }
+
+/* ---------- Sidebar to the right ---------- */
+html[dir="rtl"] .left-side-bar,
+html[dir="rtl"] .left-side-bar:before{ left:auto; right:0; }
+html[dir="rtl"] .left-side-bar.open{ left:auto; right:0; }
+html[dir="rtl"] .brand-logo{ left:auto; right:0; }
+html[dir="rtl"] .brand-logo a{ padding:0 20px; text-align:right; }
+html[dir="rtl"] .brand-logo a span{ margin-right:0; margin-left:0; }
+
+/* Sidebar menu paddings & carets */
+html[dir="rtl"] .sidebar-menu .dropdown-toggle{ padding:14px 67px 14px 15px; }
+html[dir="rtl"] .sidebar-menu .dropdown-toggle:after{ left:15px; right:auto; }
+html[dir="rtl"] .sidebar-menu .dropdown-toggle .micon{ right:10px; left:auto; }
+html[dir="rtl"] .sidebar-menu .submenu{ padding:4px 6px; }
+html[dir="rtl"] .sidebar-menu .submenu li>a{ padding:14px 60px 14px 15px; }
+html[dir="rtl"] .sidebar-menu .submenu li>a:before{ right:28px; left:auto; transform:translate(0,-50%); }
+html[dir="rtl"] .sidebar-menu .submenu.child{ padding-right:15px; padding-left:0; }
+html[dir="rtl"] .sidebar-menu .submenu li:hover>a:before{ right:18px; left:auto; }
+html[dir="rtl"] .mobile-menu-overlay{ right:0; left:auto; background-position:2% 15px; }
+
+/* ---------- Breadcrumb arrow direction ---------- */
+html[dir="rtl"] .breadcrumb-item+.breadcrumb-item::before{ content:"\f104"; font-family:"FontAwesome"; }
+
+/* ---------- Forms / Inputs / Custom controls ---------- */
+html[dir="rtl"] .input-group.custom>.custom-select:not(:first-child),
+html[dir="rtl"] .input-group.custom>.form-control:not(:first-child){ padding-right:50px; padding-left:.75rem; }
+
+html[dir="rtl"] .input-group.custom>.custom-select:not(:last-child),
+html[dir="rtl"] .input-group.custom>.form-control:not(:last-child){ padding-left:50px; padding-right:.75rem; }
+
+html[dir="rtl"] .input-group-prepend.custom{ right:auto; left:0; }
+html[dir="rtl"] .input-group-append.custom{ left:auto; right:0; }
+
+html[dir="rtl"] .custom-control{ padding-right:35px; padding-left:0; }
+html[dir="rtl"] .custom-control-label::before{ right:-30px; left:auto; }
+html[dir="rtl"] .custom-control-label::after{ right:-30px; left:auto; }
+
+/* Validation icons inside inputs */
+html[dir="rtl"] .form-control-success{ background-position:center left 10px; }
+html[dir="rtl"] .form-control-warning{ background-position:center left 10px; }
+html[dir="rtl"] .form-control-danger{  background-position:center left 10px; }
+
+/* Custom file input button to the left in RTL */
+html[dir="rtl"] .custom-file-label{ padding-right:.75rem; padding-left:3rem; }
+html[dir="rtl"] .custom-file-label::after{ right:auto; left:0; }
+
+/* Select2 / Bootstrap-select arrows */
+html[dir="rtl"] .select2-container--default .select2-selection--single .select2-selection__arrow{ right:auto; left:0; }
+html[dir="rtl"] .bootstrap-select .dropdown-toggle{ padding-right:30px; }
+html[dir="rtl"] .bootstrap-select .dropdown-toggle::after{ right:auto; left:10px; }
+
+/* ---------- Tables / DataTables indicators ---------- */
+html[dir="rtl"] table.dataTable.dtr-inline.collapsed>tbody>tr[role=row]>td:first-child:before,
+html[dir="rtl"] table.dataTable.dtr-inline.collapsed>tbody>tr[role=row]>th:first-child:before{
+  right:7px; left:auto; content:"\f107"; font-family:"FontAwesome";
+}
+html[dir="rtl"] table.dataTable.dtr-inline.collapsed>tbody>tr.parent>td:first-child:before,
+html[dir="rtl"] table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before{
+  content:"\f106";
+}
+
+/* ---------- Blog / images ---------- */
+html[dir="rtl"] .blog-list ul li .blog-img{ border-radius:0 10px 10px 0; }
+html[dir="rtl"] .img-preview{ float:right; margin-left:.5rem; margin-right:0; }
+
+/* ---------- Timeline / Sitemap ---------- */
+html[dir="rtl"] .timeline ul:before{ right:150px; left:auto; }
+html[dir="rtl"] .timeline ul li{ padding-right:180px; padding-left:0; }
+html[dir="rtl"] .timeline ul li:before{ right:142px; left:auto; }
+html[dir="rtl"] .timeline .timeline-date{ right:0; left:auto; }
+
+html[dir="rtl"] .list-unstyled>li>ul{ margin-right:35px; margin-left:0; }
+html[dir="rtl"] .sitemap{ border-right:2px dashed #1b00ff; border-left:0; }
+html[dir="rtl"] .sitemap ul,
+html[dir="rtl"] .sitemap ul li{ padding-right:25px; padding-left:0; }
+html[dir="rtl"] .sitemap ul li{ padding-right:35px; padding-left:0; }
+html[dir="rtl"] .sitemap ul li:before{ right:6px; left:auto; }
+html[dir="rtl"] .sitemap ul li:after{ right:-25px; left:auto; }
+
+/* ---------- FAQ ---------- */
+html[dir="rtl"] .faq-wrap .card-header{ text-align:right; }
+html[dir="rtl"] .faq-wrap .card-header .btn{
+  text-align:right; padding:16px 16px 16px 40px;
+}
+html[dir="rtl"] .faq-wrap .card-header .btn:after{ left:10px; right:auto; }
+
+/* ---------- Invoice blocks ---------- */
+html[dir="rtl"] .invoice-desc .invoice-sub{ float:right; }
+html[dir="rtl"] .invoice-desc .invoice-hours,
+html[dir="rtl"] .invoice-desc .invoice-rate{ float:right; }
+html[dir="rtl"] .invoice-desc .invoice-subtotal{ float:left; }
+
+/* ---------- Chat ---------- */
+html[dir="rtl"] .chat-search>span{ right:30px; left:auto; }
+html[dir="rtl"] .chat-search input{ padding-right:50px; padding-left:0; }
+
+html[dir="rtl"] .chat-box .chat-desc ul li .chat-body{ margin-right:60px; margin-left:0; }
+html[dir="rtl"] .chat-box .chat-desc ul li.admin_chat .chat-body{
+  margin-left:60px; margin-right:0; text-align:left;
+}
+html[dir="rtl"] .chat-box .chat-desc ul li.admin_chat .chat-body p:after{
+  border-left:0; border-right:6px solid #389bff; right:auto; left:-6px;
+}
+
+html[dir="rtl"] .chat-footer .file-upload{ float:right; }
+html[dir="rtl"] .chat-footer .chat_text_area{ float:right; }
+html[dir="rtl"] .chat-footer .chat_send{ float:left; }
+
+/* ---------- Right sidebar ---------- */
+html[dir="rtl"] .right-sidebar{ left:0; right:auto; }
+html[dir="rtl"] .right-sidebar-visible{ left:0; right:auto; }
+html[dir="rtl"] .right-sidebar .sidebar-title{ text-align:right; }
+html[dir="rtl"] .sidebar-radio-group .custom-control-inline{ margin-left:0; margin-right:0; }
+
+/* ---------- Docs / welcome modal ---------- */
+html[dir="rtl"] .documentation-wrap{ padding-right:300px; padding-left:0; }
+html[dir="rtl"] .documentation-wrap .doc-sidebar{ right:0; left:auto; }
+html[dir="rtl"] .welcome-modal,
+html[dir="rtl"] .welcome-modal-btn{ left:24px; right:auto; }
+html[dir="rtl"] .welcome-modal .welcome-modal-close{ left:8px; right:auto; }
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width:1024px){
+  html[dir="rtl"] .header-left .header-search{ right:0; left:auto; }
+  html[dir="rtl"] .register-page-wrap .wizard-content .wizard{ padding-right:300px; padding-left:0; }
+}
+@media (max-width:767px){
+  html[dir="rtl"] .header{ right:0; left:auto; }
+  html[dir="rtl"] .timeline .timeline-date{ right:35px; left:auto; }
+  html[dir="rtl"] .timeline ul:before{ right:10px; left:auto; }
+}

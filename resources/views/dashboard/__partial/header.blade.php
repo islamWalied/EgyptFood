@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app()->getLocale() }}"
+      dir="{{ app()->getLocale()==='ar' ? 'rtl' : 'ltr' }}">
+@if(app()->getLocale()==='ar')
+@endif
+
 
 <head>
 
@@ -26,6 +30,8 @@
 
 
     @if (app()->getLocale() === 'ar')
+  {{-- <link rel="stylesheet" href="{{ asset('vendors/styles/deskapp-rtl.css') }}"> --}}
+
 {{--         <link rel="stylesheet" type="text/css" href="{{ asset('vendors/styles/style.rtl.css') }}" />--}}
 {{--         <link rel="stylesheet" type="text/css" href="{{ asset('vendors/styles/core.ar.css') }}" />--}}
 

@@ -31,10 +31,10 @@ class CategoryController extends Controller
     public function create()
     {
         $category = new Category();
-        $categories = Category::whereNull('category_id')->get();
-        $parents = Category::pluck('name' , 'id')->toArray();
+        $parents = Category::whereNull('category_id')->pluck('name' , 'id')->toArray();
+        // $parents = Category::pluck('name' , 'id')->toArray();
 
-        return view('admin.categories.create', compact('category','categories' , 'parents'));
+        return view('admin.categories.create', compact('category' , 'parents'));
     }
 
     public function store(Request $request)
@@ -45,11 +45,11 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $response = $this->categoryService->show($id);
-        $categories = Category::whereNull('category_id')->where('id', '!=', $id)->get();
-        $parents = Category::pluck('name' , 'id')->toArray();
+        $parents = Category::whereNull('category_id')->where('id', '!=', $id)->pluck('name' , 'id')->toArray();
+        // $parents = Category::pluck('name' , 'id')->toArray();
         return view('admin.categories.edit', [
             'category' => $response->getData()['item'],
-            'categories' => $categories,
+            // 'categories' => $categories,
             'parents' => $parents,
         ]);
     }

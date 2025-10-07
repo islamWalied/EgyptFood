@@ -24,6 +24,12 @@
                         <span class="mtext">{{ __("categories.title") }}</span>
                     </a>
                 </li>
+                <li class="dropdown">
+                    <a href="{{ route('admin.products.index') }}" class="dropdown-toggle no-arrow">
+                        <span class="micon bi bi-grid"></span>
+                        <span class="mtext">{{ __("products.title") }}</span>
+                    </a>
+                </li>
  {{--
                                <li class="dropdown">
                                    <a href="javascript:;" class="dropdown-toggle">

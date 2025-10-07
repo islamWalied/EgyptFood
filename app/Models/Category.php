@@ -22,6 +22,13 @@ class Category extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
+    // Relation with products
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    // Accessor for image URL
     public function getImageUrlAttribute()
     {
         return $this->image ? 'storage/' . $this->image : 'https://via.placeholder.com/150';

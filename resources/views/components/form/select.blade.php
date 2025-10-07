@@ -6,10 +6,10 @@
 @endif
 <select class="form-control" name="{{$name}}">
     <option value=""> {{ $first_option }}</option>
-        @foreach ($options as $value => $text)
-            <option value="{{ $value }}"
+    @foreach ($options as $value => $text)
+        <option value="{{ $value }}"
             @selected(old($name , $value) == $selected)> {{ $text }}</option>
-        @endforeach
+    @endforeach
 </select>
 {{--
   @props(['id'=>'' , 'label'=>'' , 'name' ,'options' => [] , 'selected'=>''])

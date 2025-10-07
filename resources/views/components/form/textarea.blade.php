@@ -3,12 +3,12 @@
 ])
 
 @if ($label)
-<label for="">{{ $label }}</label>
+    <label for="">{{ $label }}</label>
 @endif
 
-<textarea name="{{ $name }}" 
+<textarea name="{{ $name }}"
 {{ $attributes->class([
-"form-control" , 
+"form-control" ,
     'is-invalid' => $errors->has($name)
             ]) }}>
 {{ old($name, $value) }}

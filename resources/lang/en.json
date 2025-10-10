@@ -73,5 +73,12 @@
     "products.update.error": "Unable to update product",
     "products.delete.success": "Product deleted successfully",
     "products.delete.error": "Unable to delete product",
-    "products.parent" : "Category"
+    "products.parent" : "Product Images" ,
+    "products.images.title": "Product Images",
+    "products.images.add": "Add Image",
+    "products.images.edit_title": "Edit Image",
+    "products.images.update": "Update Image",
+    "products.images.cancel": "Cancel",
+    "products.gallery_title": "Product Gallery",
+    "products.no_images_in_gallery" :"No images in gallery"
 }

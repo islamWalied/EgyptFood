@@ -73,5 +73,13 @@
     "products.update.error": "غير قادر على تحديث المنتج",
     "products.delete.success": "تم حذف المنتج بنجاح",
     "products.delete.error": "غير قادر على حذف المنتج",
-    "products.parent" : "المنتجات"
+    "products.parent" : "المنتجات",
+    "products.images.title": "صور المنتج",
+    "products.images.add": "إضافةصورة",
+    "products.images.edit_title": "تعديل الصورة",
+    "products.images.update": "تحديث الصورة",
+    "products.images.cancel": "إلغاء",
+    "products.gallery_title" : "صور المنتج",
+    "products.no_images_in_gallery" : "لا يوجد صور"
+
 }

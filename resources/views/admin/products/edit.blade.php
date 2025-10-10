@@ -13,6 +13,9 @@
             <div class="col-md-12">
                 <h1 class="text-2xl font-bold mb-4">{{ __('products.edit_title') }}</h1>
 
+
+                    <a href="{{ route('admin.product-images.edit', $product->id) }}" class="btn btn-success">{{ __('products.add') }}</a>
+
                 <!-- Display Validation Errors -->
                 @if ($errors->has('error'))
                     <div class="mb-4 p-4 rounded bg-danger text-white">

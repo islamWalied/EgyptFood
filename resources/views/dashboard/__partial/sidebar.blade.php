@@ -2,8 +2,8 @@
     <div class="brand-logo">
         <a href="{{ route('admin.home') }}" class="d-flex align-items-center">
             <h1 class="">EgyFood</h1>
-            {{--            <img src="{{ asset('vendors/images/deskapp-logo.svg') }}" alt="Dark Logo" class="dark:d-none" />--}}
-            {{--            <img src="{{ asset('vendors/images/deskapp-logo-white.svg') }}" alt="Light Logo" class="d-none dark:d-block" />--}}
+            {{--            <img src="{{ asset('vendors/images/deskapp-logo.svg') }}" alt="Dark Logo" class="dark:d-none" /> --}}
+            {{--            <img src="{{ asset('vendors/images/deskapp-logo-white.svg') }}" alt="Light Logo" class="d-none dark:d-block" /> --}}
         </a>
         <div class="close-sidebar" data-toggle="left-sidebar-close">
             <i class="ion-close-round"></i>
@@ -13,7 +13,7 @@
         <div class="sidebar-menu">
             <ul id="accordion-menu">
                 <li class="dropdown">
-                    <a href="{{route('admin.home')}}" class="dropdown-toggle no-arrow">
+                    <a href="{{ route('admin.home') }}" class="dropdown-toggle no-arrow">
                         <span class="micon bi bi-house"></span>
                         <span class="mtext">Home</span>
                     </a>
@@ -21,16 +21,39 @@
                 <li class="dropdown">
                     <a href="{{ route('admin.categories.index') }}" class="dropdown-toggle no-arrow">
                         <span class="micon bi bi-grid"></span>
-                        <span class="mtext">{{ __("categories.title") }}</span>
+                        <span class="mtext">{{ __('categories.title') }}</span>
                     </a>
                 </li>
                 <li class="dropdown">
-                    <a href="{{ route('admin.products.index') }}" class="dropdown-toggle no-arrow">
-                        <span class="micon bi bi-grid"></span>
-                        <span class="mtext">{{ __("products.title") }}</span>
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon bi bi-textarea-resize"></span><span
+                            class="mtext">{{ __('products.title') }}</span>
                     </a>
+
+                    <ul class="submenu">
+                        <li class="dropdown">
+                            <a href="{{ route('admin.products.index') }}" class="dropdown-toggle no-arrow">
+                                <span class="micon bi bi-grid"></span>
+                                <span class="mtext">{{ __('products.title') }}</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon bi bi-textarea-resize"></span><span
+                            class="mtext">{{ __('products.images.title') }}</span>
+                    </a>
+
+                            <ul class="submenu">
+                            <a href="{{ route('admin.product-images.create') }}" class="dropdown-toggle no-arrow">
+                                <span class="micon bi bi-image"></span>
+                                <span class="mtext">{{ __('products.images.title') }}</span>
+                            </a>
+                            </ul>
+                        </li>
+                    </ul>
                 </li>
- {{--
+                {{--
                                <li class="dropdown">
                                    <a href="javascript:;" class="dropdown-toggle">
                                        <span class="micon bi bi-textarea-resize"></span><span class="mtext">Forms</span>

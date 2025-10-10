@@ -7,7 +7,7 @@
         <li class="breadcrumb-item active" aria-current="page">{{ __('products.title') }}</li>
     </x-slot:breadcrumb>
 
-    <div class="container">
+    {{-- <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h1 class="text-2xl font-bold mb-4">{{ __('products.title') }}</h1>
@@ -49,11 +49,7 @@
                         <tbody>
                         @foreach ($products as $product)
                             <tr>
-                                <td>
-                                    <a href="{{ route('admin.products.show', $product->id) }}">
-                                        {{ $product->name }}
-                                    </a>
-                                </td>
+                                <td>{{ $product->name }}</td>
                                 <td>
                                     @if ($product->image)
                                         <img src="{{ $product->image_url }}" alt="{{ $product->name }}" style="max-width: 100px;">
@@ -95,5 +91,5 @@
                 @endif
             </div>
         </div>
-    </div>
+    </div> --}}
 </x-dashboard.front-layout>

@@ -15,6 +15,14 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+
+    //Relationship with ProductImage
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
+
+    
     // Accessor for image URL
 
 public function getImageUrlAttribute()

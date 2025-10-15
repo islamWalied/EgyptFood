@@ -21,11 +21,11 @@
                 @endif
 
                 <div class="max-w-md">
-                    <p><strong>{{ __('departments.name') }}:</strong> {{ $item->name }}</p>
+                    <p><strong>{{ __('departments.name') }}:</strong> {{ $department->name }}</p>
                     <p><strong>{{ __('departments.people') }}:</strong>
-                        @if ($item->people && $item->people->count() > 0)
+                        @if ($department->people && $department->people->count() > 0)
                             <ul>
-                                @foreach ($item->people as $person)
+                                @foreach ($department->people as $person)
                                     <li>{{ $person->name }} ({{ $person->email }})</li>
                                 @endforeach
                             </ul>
@@ -34,7 +34,7 @@
                         @endif
                     </p>
                     <div class="mt-4">
-                        <a href="{{ route('admin.departments.edit', $item->id) }}" class="btn btn-warning">{{ __('departments.edit') }}</a>
+                        <a href="{{ route('admin.departments.edit', $department->id) }}" class="btn btn-warning">{{ __('departments.edit') }}</a>
                         <a href="{{ route('admin.departments.index') }}" class="btn btn-secondary">{{ __('departments.back') }}</a>
                     </div>
                 </div>

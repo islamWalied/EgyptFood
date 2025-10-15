@@ -31,6 +31,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('products', ProductController::class);
     Route::resource('departments', DepartmentController::class);
-    Route::resource('person', PersonController::class);
+    Route::resource('people', PersonController::class);
     Route::resource('product-images', ProductImageController::class);
 });

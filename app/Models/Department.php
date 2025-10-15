@@ -10,7 +10,7 @@ class Department extends Model
         'name',
     ];
 
-    public function persons()
+    public function people()
     {
         return $this->hasMany(Person::class);
     }

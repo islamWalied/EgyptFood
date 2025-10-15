@@ -59,6 +59,12 @@
                         <span class="mtext">{{ __('departments.title') }}</span>
                     </a>
                 </li>
+                <li class="dropdown">
+                    <a href="{{ route('admin.people.index') }}" class="dropdown-toggle no-arrow">
+                        <span class="micon bi bi-grid"></span>
+                        <span class="mtext">{{ __('people.title') }}</span>
+                    </a>
+                </li>
                 {{--
                                <li class="dropdown">
                                    <a href="javascript:;" class="dropdown-toggle">

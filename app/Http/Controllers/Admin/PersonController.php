@@ -5,14 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePersonRequest;
 use App\Http\Requests\UpdatePersonRequest;
+use App\Models\Department;
 use App\Models\Person;
 
 class PersonController extends Controller
 {
     public function index()
     {
-        $persons = Person::with('department')->paginate(10);
-        return view('admin.person.index', compact('persons'));
+        $data = Person::with('department')->paginate(10);
+        return view('admin.people.index', compact('data'));
     }
 
     /**
@@ -20,7 +21,9 @@ class PersonController extends Controller
      */
     public function create()
     {
-//        return view('admin.person.create' , compact('product' , 'categories'));
+        $departments = Department::pluck('name', 'id')->toArray();
+        $person = new Person();
+        return view('admin.people.create', compact('departments', 'person'));
     }
 
     /**
@@ -35,7 +38,7 @@ class PersonController extends Controller
         ];
         Person::create($person);
 
-        return redirect()->route('admin.person.index')->with('success', 'Person created successfully');
+        return redirect()->route('admin.people.index')->with('success', 'Person created successfully');
     }
 
     /**
@@ -43,7 +46,7 @@ class PersonController extends Controller
      */
     public function show(Person $person)
     {
-        return view('admin.person.show', compact('person'));
+        return view('admin.people.show', compact('person'));
     }
 
     /**
@@ -51,7 +54,7 @@ class PersonController extends Controller
      */
     public function edit(Person $person)
     {
-//        return view('admin.person.edit' , compact('product' , 'categories'));
+        return view('admin.person.edit' , compact('person'));
     }
 
     /**
@@ -64,7 +67,7 @@ class PersonController extends Controller
         $person->department_id = $request->department_id ?? $person->department_id;
         $person->save();
 
-        return redirect()->route('admin.person.index')->with('success', 'Person updated successfully');
+        return redirect()->route('admin.people.index')->with('success', 'Person updated successfully');
 
     }
 
@@ -74,6 +77,6 @@ class PersonController extends Controller
     public function destroy(Person $person)
     {
         $person->delete();
-        return redirect()->route('admin.person.index')->with('success', 'Person deleted successfully');
+        return redirect()->route('admin.people.index')->with('success', 'Person deleted successfully');
     }
 }

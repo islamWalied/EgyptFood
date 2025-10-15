@@ -12,8 +12,8 @@ class DepartmentController extends Controller
 
     public function index()
     {
-        $departments = Department::with('persons')->paginate(10);
-        return view('admin.departments.index', compact('departments'));
+        $data = Department::with('persons')->paginate(10);
+        return view('admin.departments.index', compact('data'));
     }
 
     /**
@@ -21,7 +21,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-//        return view('admin.departments.create' , compact('product' , 'categories'));
+        return view('admin.departments.create');
     }
 
     /**
@@ -50,7 +50,7 @@ class DepartmentController extends Controller
      */
     public function edit(Department $department)
     {
-//        return view('admin.departments.edit' , compact('product' , 'categories'));
+        return view('admin.departments.edit' , compact('department'));
     }
 
     /**

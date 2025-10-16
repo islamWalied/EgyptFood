@@ -17,7 +17,11 @@ Route::get('/', function () {
     return "this is the domain";
 });
 
-Route::get('/home' , [FtontLayoutController::class, 'forntHome'])->name('front-home');
+Route::get('/home' , [FtontLayoutController::class, 'forntHome'])->name('front.home');
+use App\Http\Controllers\CategoryController;
+
+Route::get('/categories/{category}', [FtontLayoutController::class, 'forntProducts'])
+     ->name('categories.show'); // هنوصل له من زر "المزيد"
 
 
 require __DIR__.'/admin.php';

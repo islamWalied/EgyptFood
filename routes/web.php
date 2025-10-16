@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LayoutFront\FtontLayoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return "this is the domain";
 });
+
+Route::get('/home' , [FtontLayoutController::class, 'forntHome'])->name('front-home');
+
 
 require __DIR__.'/admin.php';

@@ -10,7 +10,7 @@
         "checkout": "git checkout main",
         "pull": "git pull origin main",
         "add": "git add .",
-        "commit": "git commit -m \"تعديلات ف الانشاء product \"",
+        "commit": "git commit -m \"تعديلات ف الانشاء front \"",
         "after-pull": "php artisan migrate && php artisan optimize:clear && composer dump-autoload",
         "push": "git push origin main",
         "rollback": "git reset --hard ORIG_HEAD",

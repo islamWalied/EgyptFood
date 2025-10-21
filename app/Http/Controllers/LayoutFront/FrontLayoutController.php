@@ -4,12 +4,14 @@ namespace App\Http\Controllers\LayoutFront;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Department;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class FtontLayoutController extends Controller
+class FrontLayoutController extends Controller
 {
-    public function forntHome(){
+    public function forntHome()
+    {
 
         $parents = Category::with('children')
             ->whereNull('category_id')
@@ -18,17 +20,24 @@ class FtontLayoutController extends Controller
 
         $subcategories = $parents->pluck('children')->flatten()->values();
 
-    return view('front-layouts.index' , [
-        'categories'    => $parents,       // ازرار الفلاتر
-        'subcategories' => $subcategories, // الشبكة (بدل $products)
-    ]);
+        return view('front-layouts.index', [
+            'categories' => $parents,       // ازرار الفلاتر
+            'subcategories' => $subcategories, // الشبكة (بدل $products)
+        ]);
 
-}
+    }
 
-public function forntProducts(Category $category)
-{
+    public function departmentContact()
+    {
+        return view('front-layouts.department', [
+            'departments' => Department::with('people')->get(),
+        ]);
+    }
 
-    $categories = Category::with('children')
+    public function forntProducts(Category $category)
+    {
+
+        $categories = Category::with('children')
             ->whereNull('category_id')
             ->orderBy('name')
             ->get();
@@ -51,7 +60,7 @@ public function forntProducts(Category $category)
             'children' => $children,
             'categories' => $categories   // لو عندك مستوى ثالث (اختياري للفلاتر)
         ]);
-}
+    }
 
 
 }

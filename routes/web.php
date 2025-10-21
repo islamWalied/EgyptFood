@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\LayoutFront\FtontLayoutController;
+use App\Http\Controllers\LayoutFront\FrontLayoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function () {
-    return "this is the domain";
+    return redirect()->route('front.home');
 });
 
-Route::get('/home' , [FtontLayoutController::class, 'forntHome'])->name('front.home');
-use App\Http\Controllers\CategoryController;
+Route::get('/home' , [FrontLayoutController::class, 'forntHome'])->name('front.home');
+Route::get('/department-contact' , [FrontLayoutController::class, 'departmentContact'])->name('department.contact');
 
-Route::get('/categories/{category}', [FtontLayoutController::class, 'forntProducts'])
+Route::get('/categories/{category}', [FrontLayoutController::class, 'forntProducts'])
      ->name('categories.show'); // هنوصل له من زر "المزيد"
 
 

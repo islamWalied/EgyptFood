@@ -2,7 +2,7 @@
 
     <div class="header-left">
 
-        <div class="menu-icon bi bi-list"></div>
+        {{-- <div class="menu-icon ``"></div> --}}
 
         {{--             call header left         --}}
         {{--        @include('dashboard.__partial.dash_header.header_left')--}}

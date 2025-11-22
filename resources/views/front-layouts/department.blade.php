@@ -60,7 +60,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="{{ route('front.home') }}">الرئيسية</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('menu.html') }}">القائمة</a></li>
+{{--                    <li class="nav-item"><a class="nav-link" href="{{ url('menu.html') }}">القائمة</a></li>--}}
 {{--                    <li class="nav-item"><a class="nav-link" href="{{ url('about.html') }}">عن المطعم</a></li>--}}
 {{--                    <li class="nav-item"><a class="nav-link" href="{{ url('book.html') }}">احجز طاولة</a></li>--}}
                     <li class="nav-item"><a class="nav-link" href="{{ route('department.contact') }}">تواصل معنا</a></li>

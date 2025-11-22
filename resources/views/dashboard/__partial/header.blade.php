@@ -30,10 +30,10 @@
 
 
     @if (app()->getLocale() === 'ar')
-  {{-- <link rel="stylesheet" href="{{ asset('vendors/styles/deskapp-rtl.css') }}"> --}}
+  <link rel="stylesheet" href="{{ asset('vendors/styles/deskapp-rtl.css') }}">
 
-{{--         <link rel="stylesheet" type="text/css" href="{{ asset('vendors/styles/style.rtl.css') }}" />--}}
-{{--         <link rel="stylesheet" type="text/css" href="{{ asset('vendors/styles/core.ar.css') }}" />--}}
+        {{-- <link rel="stylesheet" type="text/css" href="{{ asset('vendors/styles/style.rtl.css') }}" /> --}}
+        {{-- <link rel="stylesheet" type="text/css" href="{{ asset('vendors/styles/core.ar.css') }}" /> --}}
 
     @endif
     <!-- Google Tag Manager -->
@@ -57,3 +57,5 @@
     @stack('styles')
 </head>
 <body>
+
+    

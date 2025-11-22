@@ -84,6 +84,9 @@
                   <p>{{ \Illuminate\Support\Str::limit($product->description, 120) }}</p>
                 @endif
 
+                    <div class="btn-box"><a href="#" class="btn1">المزيد</a></div>
+
+
                 {{-- (اختياري) السعر وزر إضافة للسلة --}}
                 {{-- @isset($product->price)
                   <div class="mt-2"><strong>{{ number_format($product->price,2) }}</strong> <small>ج.م</small></div>
